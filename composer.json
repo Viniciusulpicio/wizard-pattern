@@ -1,0 +1,28 @@
+{
+    "name": "combr/wizard-pattern",
+    "description": "Enterprise Email Infrastructure Diagnostic Wizard for Combr Solucoes em Nuvem",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Combr Solucoes em Nuvem",
+            "email": "contato@combr.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "bramus/router": "^1.6",
+        "guzzlehttp/guzzle": "^8.1",
+        "ramsey/uuid": "^4.9",
+        "vlucas/phpdotenv": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Combr\\Wizard\\": "src/"
+        }
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8000 -t public",
+        "test": "php tests/DiagnosticEngineTest.php"
+    }
+}
