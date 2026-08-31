@@ -30,6 +30,7 @@
     },
     "scripts": {
         "start": "php -S 0.0.0.0:8000 -t public",
+        "build": "php bin/build-static.php",
         "test": "php tests/DiagnosticEngineTest.php"
     }
 }

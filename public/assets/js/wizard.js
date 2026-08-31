@@ -266,6 +266,224 @@
   };
 
   // Generate Diagnosis & Standardized JSON Payload
+  
+  // Client-side fallback engine for static hosting (e.g. GitHub Pages)
+  function calculateClientSideDiagnosis(answers) {
+    const mailboxesChoice = answers.mailboxes_volume || 'business';
+    const customBoxes = parseInt(answers.custom_mailboxes || 0, 10);
+    const customStorageGB = parseInt(answers.custom_storage_gb || 25, 10);
+    const architecture = answers.hosting_architecture || 'hybrid_cloud';
+    const securityItems = Array.isArray(answers.security_compliance) ? answers.security_compliance : ['dns_authentication', 'antispam_gateway', 'tls_2fa'];
+    const backupChoice = answers.backup_continuity || 'savemail_immutable';
+    const smtpChoice = answers.smtp_volume || 'smtp_standard';
+    const company = answers.company_details || {};
+
+    let mailboxCount = 35;
+    let storagePerBoxGB = 25;
+    if (mailboxesChoice === 'starter') { mailboxCount = 10; storagePerBoxGB = 15; }
+    else if (mailboxesChoice === 'business') { mailboxCount = 35; storagePerBoxGB = 25; }
+    else if (mailboxesChoice === 'growth') { mailboxCount = 120; storagePerBoxGB = 50; }
+    else if (mailboxesChoice === 'enterprise') { mailboxCount = 450; storagePerBoxGB = 100; }
+    else if (mailboxesChoice === 'custom_volume') {
+      mailboxCount = customBoxes > 0 ? customBoxes : 50;
+      storagePerBoxGB = customStorageGB > 0 ? customStorageGB : 25;
+    }
+    const totalStorageGB = mailboxCount * storagePerBoxGB;
+
+    let archName = 'Arquitetura Híbrida Inteligente (Combr HybridCloud)';
+    let archTagline = 'Produtividade M365/Google nos postos chave + Cloud Corporativa Combr de alta capacidade';
+    let archSku = 'COMBR-ARCH-HYBRID-V2';
+    let archSavings = 'Economia de até 68% em relação a 100% M365/Google';
+    let archTier = 'Enterprise Hybrid';
+
+    if (architecture === 'dedicated_cloud') {
+      archName = 'Cloud Corporativa Privada (Combr PrivateMail Zimbra/cPanel)';
+      archTagline = 'Ambiente exclusivo sob domínio próprio, controle total e soberania dos dados';
+      archSku = 'COMBR-ARCH-PRIVATEMAIL-V2';
+      archSavings = 'Excelente custo-benefício e independência total de fornecedores estrangeiros';
+      archTier = 'Dedicated Sovereign Cloud';
+    } else if (architecture === 'saas_pure') {
+      archName = 'SaaS Integral Gerenciado (Microsoft 365 / Google Workspace)';
+      archTagline = 'Licenciamento oficial com suporte especializado Combr em português e faturamento em BRL';
+      archSku = 'COMBR-ARCH-SAAS-MANAGED';
+      archSavings = 'Sem surpresas de variação cambial (Dólar/IOF) e gestão técnica inclusa';
+      archTier = 'Full SaaS Managed';
+    } else if (architecture === 'vps_dedicated_cluster') {
+      archName = 'Cluster VPS / AWS Dedicado Exclusivo Gerenciado';
+      archTagline = 'Servidor isolado com IPs dedicados exclusivos e gestão proativa de reputação';
+      archSku = 'COMBR-ARCH-VPS-DEDICATED';
+      archSavings = 'Isolamento de tráfego e máxima capacidade para operações críticas';
+      archTier = 'Dedicated High-Compute VPS';
+    }
+
+    let securityScore = 40;
+    const activeProtocols = [];
+    if (securityItems.includes('dns_authentication')) {
+      securityScore += 20;
+      activeProtocols.push('SPF', 'DKIM (2048 bit)', 'DMARC', 'PTR / Reverse DNS');
+    }
+    if (securityItems.includes('antispam_gateway')) {
+      securityScore += 20;
+      activeProtocols.push('Combr SpamWall Heurístico (99.8% block rate)', 'Zero-Day Antivirus');
+    }
+    if (securityItems.includes('tls_2fa')) {
+      securityScore += 15;
+      activeProtocols.push('TLS 1.3 Enforced SSL', 'MFA / 2FA Obrigatório TOTP');
+    }
+    if (securityItems.includes('lgpd_audit_logs')) {
+      securityScore += 5;
+      activeProtocols.push('Trilha de Auditoria LGPD');
+    }
+    securityScore = Math.min(100, securityScore);
+
+    let backupName = 'SaveMail Pro - Arquivamento Imutável & Retenção Histórica (WORM)';
+    let retentionDays = 1825;
+    let rpoHours = 1;
+    if (backupChoice === 'daily_backup_30d') {
+      backupName = 'Backup Diário com Retenção de 30 Dias';
+      retentionDays = 30;
+      rpoHours = 24;
+    } else if (backupChoice === 'multi_region_dr') {
+      backupName = 'Alta Disponibilidade Multi-Região (Disaster Recovery)';
+      retentionDays = 90;
+      rpoHours = 0.25;
+    }
+
+    let smtpName = 'SMTP Transacional Dedicado (Até 50.000 envios/mês)';
+    let smtpQuota = 50000;
+    if (smtpChoice === 'smtp_high_volume') {
+      smtpName = 'SMTP Alto Volume & Campanhas (500.000+ envios/mês)';
+      smtpQuota = 500000;
+    } else if (smtpChoice === 'regular_only') {
+      smtpName = 'Pool Padrão para Colaboradores';
+      smtpQuota = 5000;
+    }
+
+    const domain = (company.domain || 'empresa.com.br').replace(/^https?:///, '').replace(//$/, '');
+    const requestId = 'REQ-' + Math.random().toString(36).substring(2, 8).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+
+    const dnsBlueprint = [
+      { type: 'MX', host: '@', priority: 10, value: 'mx1.cloudmail.combr.com.br.', ttl: 3600 },
+      { type: 'MX', host: '@', priority: 20, value: 'mx2.cloudmail.combr.com.br.', ttl: 3600 },
+      { type: 'TXT', host: '@', value: 'v=spf1 include:_spf.combr.com.br ~all', purpose: 'SPF Validation' },
+      { type: 'TXT', host: 'default._domainkey', value: 'v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0F9combrKey...', purpose: 'DKIM Cryptographic Signature' },
+      { type: 'TXT', host: '_dmarc', value: 'v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@combr.com.br; pct=100; sp=reject', purpose: 'DMARC Policy Enforcement' },
+      { type: 'CNAME', host: 'webmail', value: 'webmail.cloudmail.combr.com.br.', purpose: 'Webmail Interface Access' },
+      { type: 'CNAME', host: 'autodiscover', value: 'autodiscover.cloudmail.combr.com.br.', purpose: 'Outlook/Mobile Auto-Configuration' }
+    ];
+
+    const diagnostic = {
+      status: 'SUCCESS',
+      summary: {
+        mailboxes: mailboxCount,
+        storagePerBoxGB: storagePerBoxGB,
+        totalStorageGB: totalStorageGB,
+        securityScore: securityScore,
+        architecture: {
+          name: archName,
+          tagline: archTagline,
+          sku: archSku,
+          estimatedSavings: archSavings,
+          tier: archTier
+        },
+        backup: {
+          name: backupName,
+          retentionDays: retentionDays,
+          drRpoHours: rpoHours
+        },
+        smtp: {
+          name: smtpName,
+          monthlyQuota: smtpQuota,
+          dedicatedIp: true,
+          webhooks: true
+        },
+        activeSecurityProtocols: activeProtocols,
+        dnsBlueprint: dnsBlueprint,
+        company: {
+          name: company.company_name || 'Empresa Corporativa',
+          domain: domain,
+          contactName: company.contact_name || 'Gestor de TI',
+          contactEmail: company.contact_email || ('contato@' + domain),
+          contactPhone: company.contact_phone || '(11) 98765-4321',
+          currentProvider: company.current_provider || 'cPanel'
+        }
+      }
+    };
+
+    const payload = {
+      '$schema': 'https://api.combr.com.br/schemas/email-infrastructure-v2.json',
+      meta: {
+        requestId: requestId,
+        version: '2.0.0',
+        environment: 'production',
+        generator: 'Combr Wizard Pattern Diagnostic Engine',
+        generatedAt: new Date().toISOString(),
+        source: 'web-interactive-wizard'
+      },
+      customer: {
+        organization: company.company_name || 'Cliente Corporativo',
+        primaryDomain: domain,
+        technicalContact: {
+          name: company.contact_name || 'Gestor de TI',
+          email: company.contact_email || ('contato@' + domain),
+          phone: company.contact_phone || ''
+        },
+        currentLegacyProvider: company.current_provider || 'cPanel'
+      },
+      provisioningSpec: {
+        architecture: {
+          sku: archSku,
+          name: archName,
+          tier: archTier,
+          hybridRouting: architecture === 'hybrid_cloud'
+        },
+        sizing: {
+          mailboxCount: mailboxCount,
+          storagePerMailboxGB: storagePerBoxGB,
+          totalAllocatedStorageGB: totalStorageGB,
+          storageTier: 'NVMe Enterprise High-IOPS'
+        },
+        security: {
+          securityScore: securityScore,
+          protocols: {
+            enforceTls13: true,
+            requireMfa: securityItems.includes('tls_2fa'),
+            spamWallLayer: securityItems.includes('antispam_gateway') ? 'HEURISTIC_AI_GATEWAY' : 'STANDARD'
+          },
+          dnsRequirements: dnsBlueprint
+        },
+        backupAndContinuity: {
+          solution: backupName,
+          retentionDays: retentionDays,
+          immutableWormStorage: backupChoice === 'savemail_immutable'
+        }
+      },
+      ansibleDirectives: {
+        playbook: 'site-mail-provision.yml',
+        extraVars: {
+          domain_name: domain,
+          mailboxes_qty: mailboxCount,
+          quota_gb: storagePerBoxGB,
+          enable_savemail: backupChoice === 'savemail_immutable',
+          enable_spamwall: securityItems.includes('antispam_gateway'),
+          hybrid_split_domain: architecture === 'hybrid_cloud'
+        }
+      },
+      terraformPayload: {
+        module: 'combr_enterprise_mail',
+        variables: {
+          client_id: (company.company_name || 'client').toLowerCase().replace(/[^a-z0-9]/g, ''),
+          domain: domain,
+          cluster_tier: archSku.toLowerCase(),
+          storage_capacity_gb: totalStorageGB,
+          dedicated_ips_count: 1
+        }
+      }
+    };
+
+    return { diagnostic, payload };
+  }
+
   async function generateDiagnosisAndPayload() {
     const resultLoading = document.getElementById('result-loading');
     const resultContent = document.getElementById('result-content');
@@ -274,20 +492,28 @@
     if (resultContent) resultContent.style.display = 'none';
 
     try {
-      const response = await fetch('/api/diagnose', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers: state.answers })
-      });
+      try {
+        const response = await fetch('/api/diagnose', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ answers: state.answers })
+        });
+        if (response.ok) {
+          const data = await response.json();
+          if (data.status === 'SUCCESS') {
+            state.diagnosticData = data.diagnostic;
+            state.payloadData = data.payload;
+            renderResultsView();
+            return;
+          }
+        }
+      } catch (e) {}
 
-      const data = await response.json();
-      if (data.status === 'SUCCESS') {
-        state.diagnosticData = data.diagnostic;
-        state.payloadData = data.payload;
-        renderResultsView();
-      } else {
-        showToast('Erro ao processar diagnóstico.', 'error');
-      }
+      // Seamless fallback for GitHub Pages (Static hosting)
+      const fallback = calculateClientSideDiagnosis(state.answers);
+      state.diagnosticData = fallback.diagnostic;
+      state.payloadData = fallback.payload;
+      renderResultsView();
     } catch (err) {
       console.error('Diagnosis API error:', err);
       showToast('Falha na comunicação com o servidor.', 'error');

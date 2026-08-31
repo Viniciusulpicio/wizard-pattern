@@ -7,6 +7,12 @@
 
 ---
 
+## 🌐 Live Demo Online (GitHub Pages)
+
+👉 **Acesse o site ao vivo:** [https://viniciusulpicio.github.io/wizard-pattern/](https://viniciusulpicio.github.io/wizard-pattern/)
+
+---
+
 ## 🚀 Funcionalidades Principais
 
 1. **Design System & UX Inspirado no Quiz da Manual**:
