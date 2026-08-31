@@ -47,14 +47,14 @@ jobs:
       - name: Lint PHP Syntax
         run: |
           echo "Verificando sintaxe de todos os arquivos PHP..."
-          find src public templates tests -name "*.php" -exec php -l {} \;
+          find src public templates tests bin -name "*.php" -exec php -l {} \;
 
       - name: Run Test Suite (Diagnostic Engine & Payload Validation)
         run: composer test
 
       - name: Smoke Test API Health Endpoint
         run: |
-          php -S 127.0.0.1:8000 -t public > /dev/null 2>&1 &
+          php -S 127.0.0.1:8000 -t public public/index.php > /dev/null 2>&1 &
           SERVER_PID=$!
           sleep 2
           curl --fail -s http://127.0.0.1:8000/api/health || exit 1
