@@ -1,5 +1,7 @@
 # Wizard Pattern &bull; Combr Soluções em Nuvem
 
+[![CI - Wizard Pattern Engine](https://github.com/Viniciusulpicio/wizard-pattern/actions/workflows/ci.yml/badge.svg)](https://github.com/Viniciusulpicio/wizard-pattern/actions/workflows/ci.yml)
+
 > **Uma interface interativa (Multi-step form / Wizard)** desenvolvida em **PHP com Composer (vendor)** para diagnosticar as necessidades de infraestrutura de e-mail de clientes corporativos.
 > Inspirada no design system minimalista e refinado do quiz da Manual, adaptada para a identidade e catálogo de serviços da **[Combr Soluções em Nuvem](https://combr.com.br/)**.
 
