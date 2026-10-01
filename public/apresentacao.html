@@ -178,15 +178,11 @@
     </div>
 
     <div class="slide" data-slide="4">
-      <img src="assets/slides/slide-4.png" alt="Slide 4 - Impacto Financeiro" />
+      <img src="assets/slides/slide-4.png" alt="Slide 4 - Modelos de Arquitetura" />
     </div>
 
     <div class="slide" data-slide="5">
-      <img src="assets/slides/slide-5.png" alt="Slide 5 - Modelos de Arquitetura" />
-    </div>
-
-    <div class="slide" data-slide="6">
-      <img src="assets/slides/slide-6.png" alt="Slide 6 - Regras de Cálculo & Automação" />
+      <img src="assets/slides/slide-5.png" alt="Slide 5 - Regras de Cálculo & Automação" />
     </div>
   </main>
 
@@ -196,7 +192,7 @@
   <!-- Speaker Notes Drawer (Press N) -->
   <aside class="speaker-drawer" id="drawer">
     <div class="speaker-header">
-      <span class="speaker-title">Roteiro de Fala • Slide <span id="drawerNum">1</span> / 6</span>
+      <span class="speaker-title">Roteiro de Fala • Slide <span id="drawerNum">1</span> / 5</span>
       <button class="speaker-close" id="drawerClose">&times;</button>
     </div>
     <p class="speaker-text" id="drawerText"></p>
@@ -204,16 +200,15 @@
 
   <script>
     const notes = {
-      1: "Enterprise Mail Setup Wizard: desenvolvido por Victor Hugo, Pedro Lucas, Henzo Katsumuto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio e Bruno Viera para qualificar e gerar automaticamente o dimensionamento de infraestrutura de e-mail corporativo.",
+      1: "Enterprise Mail Setup Wizard: desenvolvido por Victor Hugo, Pedro Lucas, Henzo Katsumuto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio e Bruno Viera para qualificar e dimensionar automaticamente a infraestrutura de e-mail corporativo.",
       2: "O Problema: cotar e-mail corporativo tradicionalmente consome até 3 semanas de reuniões, gera superdimensionamento em dólar e propostas sem cálculo técnico real de segurança.",
-      3: "O Funil de Diagnóstico: curadoria simplificada em 8 passos diretos e interativos. O cliente responde volume, tipo de hospedagem e requisitos de segurança em menos de 2 minutos, sem jargões complexos de Linux.",
-      4: "Impacto Financeiro: combinando caixas executivas no Microsoft 365 com nuvem corporativa AlmaLinux para a operação, reduzimos a fatura anual de R$ 144 mil para R$ 43.200 — uma economia comprovada de 70% sem perder recursos corporativos.",
-      5: "Modelos de Arquitetura: o motor classifica e gera automaticamente 5 arquiteturas padronizadas: da Nuvem Híbrida à Cloud Privada soberana com backup imutável WORM de até 5 anos contra ransomware.",
-      6: "Regras de Cálculo & Automação: motor determinístico que calcula Security Score (0 a 100), storage total com margem de segurança de 20% e exporta o payload JSON pronto para provisionamento via Ansible e Terraform. Vamos direto para a demonstração prática no protótipo ao vivo!"
+      3: "O Funil de Diagnóstico: curadoria simplificada em 8 passos diretos e interativos. O cliente responde volume, hospedagem e segurança em menos de 2 minutos, sem jargões complexos de Linux.",
+      4: "Modelos de Arquitetura: o motor classifica e gera automaticamente 5 arquiteturas padronizadas: da Nuvem Híbrida à Cloud Privada soberana com backup imutável WORM de até 5 anos contra ransomware.",
+      5: "Regras de Cálculo & Automação: motor determinístico que calcula Security Score (0 a 100), storage total com margem de segurança de 20% e exporta o payload JSON pronto para provisionamento via Ansible e Terraform. Ao avançar, vamos direto para a demonstração prática no protótipo ao vivo!"
     };
 
     let cur = 1;
-    const total = 6;
+    const total = 5;
 
     // Define correct prototype target URL
     const PROTOTYPE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
