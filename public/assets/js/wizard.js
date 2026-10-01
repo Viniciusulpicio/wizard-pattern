@@ -250,7 +250,7 @@
     const domain = document.getElementById('input-domain')?.value.trim() || 'empresa.com.br';
     const contactName = document.getElementById('input-contact-name')?.value.trim() || 'Gestor de TI';
     const contactEmail = document.getElementById('input-contact-email')?.value.trim() || `contato@${domain}`;
-    const contactPhone = document.getElementById('input-contact-phone')?.value.trim() || '(11) 98765-4321';
+    const contactPhone = document.getElementById('input-contact-phone')?.value.trim() || '(14) 99690-7398';
     const currentProvider = document.getElementById('input-current-provider')?.value || 'cPanel';
 
     state.answers.company_details = {
@@ -404,7 +404,7 @@
           domain: domain,
           contactName: company.contact_name || 'Gestor de TI',
           contactEmail: company.contact_email || ('contato@' + domain),
-          contactPhone: company.contact_phone || '(11) 98765-4321',
+          contactPhone: company.contact_phone || '(14) 99690-7398',
           currentProvider: company.current_provider || 'cPanel'
         }
       }
@@ -491,6 +491,24 @@
     if (resultLoading) resultLoading.style.display = 'block';
     if (resultContent) resultContent.style.display = 'none';
 
+    // Synchronize company_details from DOM form fields if available
+    const compName = document.getElementById('input-company-name')?.value.trim();
+    const domName = document.getElementById('input-domain')?.value.trim();
+    const contactName = document.getElementById('input-contact-name')?.value.trim();
+    const contactEmail = document.getElementById('input-contact-email')?.value.trim();
+    const contactPhone = document.getElementById('input-contact-phone')?.value.trim();
+    const currentProvider = document.getElementById('input-current-provider')?.value;
+
+    const currentDetails = state.answers.company_details || {};
+    state.answers.company_details = {
+      company_name: compName || currentDetails.company_name || 'Minha Empresa Ltda',
+      domain: domName || currentDetails.domain || 'empresa.com.br',
+      contact_name: contactName || currentDetails.contact_name || 'Gestor de TI',
+      contact_email: contactEmail || currentDetails.contact_email || (domName ? `contato@${domName}` : 'contato@empresa.com.br'),
+      contact_phone: contactPhone || currentDetails.contact_phone || '(14) 99690-7398',
+      current_provider: currentProvider || currentDetails.current_provider || 'cPanel'
+    };
+
     try {
       try {
         const response = await fetch('/api/diagnose', {
@@ -521,6 +539,77 @@
       if (resultLoading) resultLoading.style.display = 'none';
       if (resultContent) resultContent.style.display = 'block';
     }
+  }
+
+  // Build Complete WhatsApp Message with All Configurations
+  function buildWhatsAppMessage(diag, payload) {
+    const company = diag.company || {};
+    const arch = diag.architecture || {};
+    const backup = diag.backup || {};
+    const smtp = diag.smtp || {};
+
+    // Formatação do Armazenamento Total
+    const totalStorageFormatted = (typeof diag.totalStorageGB === 'number' && diag.totalStorageGB >= 1000)
+      ? (diag.totalStorageGB / 1000).toFixed(1).replace('.', ',') + ' TB'
+      : (diag.totalStorageGB ? diag.totalStorageGB + ' GB' : '875 GB');
+
+    // Lista de Protocolos de Segurança Ativados
+    let protocolsText = '';
+    if (Array.isArray(diag.activeSecurityProtocols) && diag.activeSecurityProtocols.length > 0) {
+      protocolsText = diag.activeSecurityProtocols.map(p => `• ${p}`).join('\n');
+    } else {
+      protocolsText = '• Autenticação DNS Completa (SPF, DKIM, DMARC)\n• Gateway Antispam & Antivírus Heurístico\n• Criptografia TLS 1.3 & 2FA/MFA';
+    }
+
+    // Franquia SMTP
+    const smtpQuotaFormatted = typeof smtp.monthlyQuota === 'number'
+      ? smtp.monthlyQuota.toLocaleString('pt-BR')
+      : (smtp.monthlyQuota || '50.000');
+
+    // SLA de Backup & Retenção
+    const slaText = backup.drRpoHours
+      ? `RPO ${backup.drRpoHours}h / RTO ${backup.drRtoHours || (backup.drRpoHours * 2)}h`
+      : 'RPO 1h / RTO 2h';
+    const retentionText = backup.retentionDays ? `${backup.retentionDays} dias` : '30 dias';
+
+    const reqId = payload?.meta?.requestId || 'REQ-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+
+    return (
+`*DIAGNÓSTICO DE INFRAESTRUTURA DE E-MAIL - COMBR*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🆔 *Protocolo:* ${reqId}
+
+🏢 *DADOS DA EMPRESA*
+• *Organização:* ${company.name || 'Empresa Corporativa'}
+• *Domínio:* ${company.domain || 'empresa.com.br'}
+• *Responsável / TI:* ${company.contactName || 'Gestor de TI'}
+• *WhatsApp:* ${company.contactPhone || '(14) 99690-7398'}
+• *E-mail:* ${company.contactEmail || 'contato@empresa.com.br'}
+• *Provedor Atual:* ${company.currentProvider || 'cPanel / Hospedagem'}
+
+⚙️ *CONFIGURAÇÕES DIMENSIONADAS*
+• *Arquitetura:* ${arch.name || 'Arquitetura Híbrida Inteligente'}
+• *SKU / Categoria:* ${arch.sku || 'COMBR-ARCH-HYBRID-V2'} (${arch.tier || 'Enterprise Hybrid'})
+• *Caixas Postais:* ${diag.mailboxes || 35} contas corporativas
+• *Cota por Caixa:* ${diag.storagePerBoxGB || 25} GB por caixa
+• *Storage Total:* ${totalStorageFormatted} (Storage NVMe High-IOPS)
+• *Economia Estimada:* ${arch.estimatedSavings || 'Economia de até 68% em relação a 100% M365/Google'}
+
+🛡️ *SEGURANÇA & COMPLIANCE (Score: ${diag.securityScore || 95}/100)*
+${protocolsText}
+
+🔄 *BACKUP & CONTINUIDADE (SAVEMAIL)*
+• *Plano:* ${backup.name || 'SaveMail Pro - Arquivamento Imutável'}
+• *Retenção Histórica:* ${retentionText}
+• *SLA / Contingência:* ${slaText} (99.95% uptime)
+
+📨 *MENSAGERIA & SMTP TRANSACIONAL*
+• *Serviço:* ${smtp.name || 'SMTP Transacional Dedicado'}
+• *Capacidade de Envio:* ${smtpQuotaFormatted} disparos/mês
+• *Roteamento:* ${smtp.dedicatedIp ? 'IP Dedicado Exclusivo + Webhooks' : 'Pool Monitorado'}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Olá, consultor Combr! Concluí o diagnóstico no Wizard Pattern e gostaria de dar andamento nesta especificação técnica.`
+    );
   }
 
   // Render Result Cards and Payload Tabs
@@ -581,19 +670,12 @@
       `).join('');
     }
 
-    // Update WhatsApp CTA Link
+    // Update WhatsApp CTA Link with Complete Configuration
     const waBtn = document.getElementById('btn-whatsapp-cta');
     if (waBtn) {
-      const msg = encodeURIComponent(
-        `Olá! Concluí o diagnóstico no Wizard Pattern.\n\n` +
-        `🏢 *Empresa:* ${diag.company.name || 'Minha Empresa'} (${diag.company.domain || 'empresa.com.br'})\n` +
-        `📦 *Recomendação:* ${diag.architecture.name}\n` +
-        `👥 *Caixas:* ${diag.mailboxes} | *Storage:* ${diag.totalStorageGB} GB\n` +
-        `🛡️ *Segurança:* ${diag.securityScore}/100\n` +
-        `🆔 *ID:* ${payload.meta.requestId}\n\n` +
-        `Gostaria de saber mais sobre esta proposta.`
-      );
-      waBtn.href = `https://wa.me/5511999999999?text=${msg}`;
+      const fullMsg = buildWhatsAppMessage(diag, payload);
+      const targetPhone = waBtn.getAttribute('data-whatsapp-number') || '5514996907398';
+      waBtn.href = `https://wa.me/${targetPhone}?text=${encodeURIComponent(fullMsg)}`;
     }
   }
 
@@ -622,6 +704,22 @@
     const jsonStr = JSON.stringify(state.payloadData, null, 2);
     navigator.clipboard.writeText(jsonStr).then(() => {
       showToast('Payload JSON copiado para a área de transferência!', 'success');
+    }).catch(() => {
+      showToast('Não foi possível copiar automaticamente.', 'error');
+    });
+  };
+
+  // Copy Formatted WhatsApp Message to Clipboard
+  window.copyWhatsAppMessage = function () {
+    const diag = state.diagnosticData?.summary;
+    const payload = state.payloadData;
+    if (!diag || !payload) {
+      showToast('Dados de diagnóstico indisponíveis para cópia.', 'error');
+      return;
+    }
+    const msg = buildWhatsAppMessage(diag, payload);
+    navigator.clipboard.writeText(msg).then(() => {
+      showToast('Mensagem formatada para o WhatsApp copiada!', 'success');
     }).catch(() => {
       showToast('Não foi possível copiar automaticamente.', 'error');
     });

@@ -26,7 +26,7 @@ class AppConfig
             'app_url' => $_ENV['APP_URL'] ?? 'http://localhost:8000',
             'provisioning_api_url' => $_ENV['PROVISIONING_API_URL'] ?? 'https://api.combr.com.br/v1/provisioning/infrastructures',
             'provisioning_api_key' => $_ENV['PROVISIONING_API_KEY'] ?? 'demo_key',
-            'whatsapp_number' => $_ENV['WHATSAPP_NUMBER'] ?? '5511999999999',
+            'whatsapp_number' => $_ENV['WHATSAPP_NUMBER'] ?? '5514996907398',
             'company_name' => 'Combr Soluções em Nuvem',
             'company_url' => 'https://combr.com.br',
             'version' => '2.0.0'

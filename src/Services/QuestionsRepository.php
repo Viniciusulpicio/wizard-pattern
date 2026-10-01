@@ -297,7 +297,7 @@ class QuestionsRepository
                         'id' => 'contact_phone',
                         'label' => 'Telefone / WhatsApp Comercial',
                         'type' => 'tel',
-                        'placeholder' => 'Ex: (11) 98765-4321',
+                        'placeholder' => 'Ex: (14) 99690-7398',
                         'required' => true
                     ],
                     [

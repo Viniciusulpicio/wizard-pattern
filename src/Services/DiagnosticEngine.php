@@ -257,7 +257,7 @@ class DiagnosticEngine
                     'domain' => $domain,
                     'contactName' => $company['contact_name'] ?? 'Gestor de TI',
                     'contactEmail' => $company['contact_email'] ?? 'contato@' . $domain,
-                    'contactPhone' => $company['contact_phone'] ?? '(11) 99999-9999',
+                    'contactPhone' => $company['contact_phone'] ?? '(14) 99690-7398',
                     'currentProvider' => $company['current_provider'] ?? 'Não informado'
                 ]
             ]

@@ -43,6 +43,12 @@ $html = str_replace('src="/assets/', 'src="assets/', $html);
 file_put_contents($distDir . '/index.html', $html);
 echo "✓ Generated dist/index.html\n";
 
+// Copy apresentacao.html if available
+if (file_exists(dirname(__DIR__) . '/public/apresentacao.html')) {
+    copy(dirname(__DIR__) . '/public/apresentacao.html', $distDir . '/apresentacao.html');
+    echo "✓ Copied public/apresentacao.html to dist/apresentacao.html\n";
+}
+
 // 2. Copy Assets
 function copyDir(string $src, string $dst): void {
     if (!is_dir($dst)) {
