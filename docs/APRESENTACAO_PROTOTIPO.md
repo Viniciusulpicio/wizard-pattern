@@ -30,7 +30,7 @@
 - **Título Principal:** ENTERPRISE MAIL SETUP WIZARD
 - **Subtítulo:** Gerador Inteligente de Configuração e Diagnóstico de Infraestrutura de E-mail Corporativo
 - **Contexto:** Disciplina de Fábrica de Projetos Ágeis II &bull; Turma B &bull; 2026
-- **Apresentador(es) / Integrantes:** Victor Hugo, Pedro Lucas, Henzo Katsumuto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio, Bruno Viera
+- **Apresentador(es) / Integrantes:** Victor Hugo, Pedro Lucas, Enzo Katsumoto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio, Bruno Viera
 - **Badges:** `Protótipo Funcional` | `Curadoria Simplificada` | `AlmaLinux` | `Multi-Cloud AWS & Oracle`
 
 ### 🖼️ Elementos Visuais do Slide
