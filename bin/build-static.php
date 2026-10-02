@@ -43,10 +43,14 @@ $html = str_replace('src="/assets/', 'src="assets/', $html);
 file_put_contents($distDir . '/index.html', $html);
 echo "✓ Generated dist/index.html\n";
 
-// Copy apresentacao.html if available
+// Copy apresentacao.html and apresentacao.pptx if available
 if (file_exists(dirname(__DIR__) . '/public/apresentacao.html')) {
     copy(dirname(__DIR__) . '/public/apresentacao.html', $distDir . '/apresentacao.html');
     echo "✓ Copied public/apresentacao.html to dist/apresentacao.html\n";
+}
+if (file_exists(dirname(__DIR__) . '/public/apresentacao.pptx')) {
+    copy(dirname(__DIR__) . '/public/apresentacao.pptx', $distDir . '/apresentacao.pptx');
+    echo "✓ Copied public/apresentacao.pptx to dist/apresentacao.pptx\n";
 }
 
 // 2. Copy Assets

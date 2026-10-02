@@ -1,4 +1,4 @@
-# 📊 Apresentação do Protótipo &bull; Enterprise Mail Setup Wizard
+# 📊 Apresentação do Protótipo &bull; Wizard Pattern
 **Gerador de Configuração & Diagnóstico de Infraestrutura em Nuvem**
 
 > Estrutura completa de **10 slides** focada 100% na **solução técnica, curadoria simplificada, arquitetura e protótipo funcional**, incluindo:
@@ -10,7 +10,7 @@
 
 ## 📑 Índice dos Slides
 
-1. [Slide 1: Capa &bull; Enterprise Mail Setup Wizard](#slide-1-capa--enterprise-mail-setup-wizard)
+1. [Slide 1: Capa &bull; Wizard Pattern](#slide-1-capa--wizard-pattern)
 2. [Slide 2: O Problema & O Desafio Técnico de Qualificação](#slide-2-o-problema--o-desafio-técnico-de-qualificação)
 3. [Slide 3: A Solução &bull; Curadoria Simplificada & Inteligência](#slide-3-a-solução--curadoria-simplificada--inteligência)
 4. [Slide 4: UX / UI & Padrão Zero Friction (Design System)](#slide-4-ux--ui--padrão-zero-friction-design-system)
@@ -24,21 +24,21 @@
 ---
 
 <!-- SLIDE 1 -->
-## Slide 1: Capa &bull; Enterprise Mail Setup Wizard
+## Slide 1: Capa &bull; Wizard Pattern
 
 ### 🎯 Título & Subtítulo
-- **Título Principal:** ENTERPRISE MAIL SETUP WIZARD
+- **Título Principal:** WIZARD PATTERN
 - **Subtítulo:** Gerador Inteligente de Configuração e Diagnóstico de Infraestrutura de E-mail Corporativo
 - **Contexto:** Disciplina de Fábrica de Projetos Ágeis II &bull; Turma B &bull; 2026
 - **Apresentador(es) / Integrantes:** Victor Hugo, Pedro Lucas, Enzo Katsumoto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio, Bruno Viera, Gabriel Dias
 - **Badges:** `Protótipo Funcional` | `Curadoria Simplificada` | `AlmaLinux` | `Multi-Cloud AWS & Oracle`
 
 ### 🖼️ Elementos Visuais do Slide
-- Mockup de alta definição da interface rodando em desktop e mobile.
+- Mockup de alta definição da interface rodando em desktop e mobile com a logo do Wizard Pattern.
 - Destaques visuais: Badges de tecnologia (AlmaLinux, AWS, Oracle Cloud, Cloudflare, PHP 8).
 
 ### 🎙️ Roteiro de Fala (Speaker Notes)
-> *"Olá a todos! Hoje vamos apresentar o **Enterprise Mail Setup Wizard**, um gerador interativo de configuração e diagnóstico de infraestrutura em nuvem. Nossa missão foi desenvolver uma ferramenta de curadoria simplificada que resolve o gargalo de qualificação técnica e comercial, transformando um processo burocrático que levava dias em uma experiência fluida de menos de 2 minutos."*
+> *"Olá a todos! Hoje vamos apresentar o **Wizard Pattern**, um gerador interativo de configuração e diagnóstico de infraestrutura em nuvem. Nossa missão foi desenvolver uma ferramenta de curadoria simplificada que resolve o gargalo de qualificação técnica e comercial, transformando um processo burocrático que levava dias em uma experiência fluida de menos de 2 minutos."*
 
 ---
 
