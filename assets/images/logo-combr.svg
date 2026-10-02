@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 76" fill="none" class="combr-logo">
+  <defs>
+    <linearGradient id="combr-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066FF" />
+      <stop offset="100%" stop-color="#0044B3" />
+    </linearGradient>
+    <linearGradient id="combr-green-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#76C043" />
+      <stop offset="100%" stop-color="#4E9E20" />
+    </linearGradient>
+    <linearGradient id="combr-teal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00B4D8" />
+      <stop offset="100%" stop-color="#0077B6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon: Concentric arcs representing Cloud & Connectivity -->
+  <g transform="translate(4, 2)">
+    <!-- Outer Blue Arc -->
+    <path d="M 36 6 A 30 30 0 1 0 66 36" fill="none" stroke="url(#combr-blue-grad)" stroke-width="7" stroke-linecap="round" />
+    <!-- Middle Green Arc -->
+    <path d="M 36 16 A 20 20 0 1 0 56 36" fill="none" stroke="url(#combr-green-grad)" stroke-width="6" stroke-linecap="round" />
+    <!-- Inner Teal Arc -->
+    <path d="M 36 26 A 10 10 0 1 0 46 36" fill="none" stroke="url(#combr-teal-grad)" stroke-width="5" stroke-linecap="round" />
+  </g>
+
+  <!-- Typography: combr -->
+  <g transform="translate(82, 44)">
+    <text font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="900" letter-spacing="-1.5" fill="#0B192C">
+      com<tspan fill="#0066FF">br</tspan>
+    </text>
+  </g>
+  
+  <!-- Tagline: Soluções em Nuvem -->
+  <g transform="translate(84, 62)">
+    <text font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#76C043">
+      SOLUÇÕES EM NUVEM
+    </text>
+  </g>
+</svg>
