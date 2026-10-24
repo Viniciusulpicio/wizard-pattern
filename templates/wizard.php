@@ -521,54 +521,197 @@
 
     <!-- Spotlight Recommendation Card -->
     <div class="spotlight-card">
-      <div class="spotlight-kicker">ARQUITETURA RECOMENDADA</div>
-      <h2 id="diag-arch-title" class="spotlight-title">Arquitetura Híbrida Inteligente</h2>
-      <p id="diag-arch-tagline" class="spotlight-desc">Produtividade M365/Google nos postos-chave + Cloud Corporativa de alta capacidade com redução de custos.</p>
+      <div class="spotlight-kicker">PLANO RECOMENDADO PARA SUA EMPRESA</div>
+      <h2 id="diag-arch-title" class="spotlight-title">E-mail Híbrido Inteligente</h2>
+      <p id="diag-arch-tagline" class="spotlight-desc">Combina contas Microsoft/Google para a diretoria com o E-mail Corporativo Combr para a equipe, reduzindo sua fatura mensal.</p>
 
       <div class="spotlight-stats-grid">
         <div class="stat-item">
-          <span id="diag-stat-mailboxes" class="stat-value">35 Caixas</span>
-          <span class="stat-label">Caixas Postais</span>
+          <span id="diag-stat-mailboxes" class="stat-value">35 Contas</span>
+          <span class="stat-label">Equipes & Setores</span>
         </div>
         <div class="stat-item">
           <span id="diag-stat-storage" class="stat-value">875 GB</span>
-          <span class="stat-label">Armazenamento</span>
+          <span class="stat-label">Espaço Total</span>
         </div>
         <div class="stat-item">
-          <span id="diag-stat-security" class="stat-value">95/100</span>
-          <span class="stat-label">Nível de Segurança</span>
+          <span id="diag-stat-security" class="stat-value">95%</span>
+          <span class="stat-label">Proteção Ativa</span>
         </div>
         <div class="stat-item">
-          <span id="diag-stat-sla" class="stat-value">RPO 1h</span>
-          <span class="stat-label">Continuidade</span>
+          <span id="diag-stat-sla" class="stat-value">Até 5 Anos</span>
+          <span class="stat-label">Cópia Guardada</span>
         </div>
       </div>
     </div>
 
-    <!-- Specification / JSON Viewer Container -->
+    <!-- Human-Friendly Visual Plan & Interactive Day-to-Day Simulator -->
     <div class="tabs-container">
-      <div class="code-viewer-wrapper" style="border-radius: 12px; border: none;">
-        <div class="code-viewer-header">
-          <span class="code-badge">especificacao-dimensionada.json</span>
-          <div class="code-actions">
-            <button class="btn-code-action" onclick="copyJsonPayload()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-              <span>Copiar Resumo</span>
-            </button>
-            <button class="btn-code-action" onclick="downloadJsonPayload()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              <span>Baixar .json</span>
-            </button>
+      <div class="tabs-nav" role="tablist">
+        <button type="button" class="tab-btn active" data-tab="visual" onclick="switchResultTab('visual')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+          </svg>
+          <span>Resumo Visual do Plano</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="simulator" onclick="switchResultTab('simulator')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Simular na Prática</span>
+          <span class="tab-pill-live">Experimente</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="json" onclick="switchResultTab('json')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span>Arquivo para a TI</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: Resumo Visual Simples (Sem Jargão Técnico) -->
+      <div id="tab-visual" class="tab-content active">
+        <div class="visual-spec-header">
+          <div>
+            <div class="visual-spec-domain" id="vis-customer-badge">Para: Minha Empresa (@empresa.com.br)</div>
+            <h3 class="visual-spec-title">Como o e-mail da sua empresa vai funcionar</h3>
+          </div>
+          <button type="button" class="btn-sim-trigger" onclick="switchResultTab('simulator'); runVisualSimulation();">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Ver Funcionando na Prática</span>
+          </button>
+        </div>
+
+        <!-- 4 Cartões Visuais Simples do Fluxo -->
+        <div id="vis-topology-pipeline" class="topology-pipeline">
+          <!-- Preenchido via JS em linguagem simples -->
+        </div>
+
+        <!-- Divisão de Contas e Proteções no Dia a Dia -->
+        <div class="visual-cards-grid">
+          <div class="visual-panel">
+            <div class="visual-panel-header">
+              <span class="visual-panel-title">Como ficam as contas da equipe</span>
+              <span class="visual-panel-tag" id="vis-storage-tier">Espaço Amplo</span>
+            </div>
+            <div id="vis-sizing-breakdown" class="visual-sizing-body">
+              <!-- Preenchido via JS -->
+            </div>
+          </div>
+
+          <div class="visual-panel">
+            <div class="visual-panel-header">
+              <span class="visual-panel-title">Proteções ativas no seu dia a dia</span>
+              <span class="visual-panel-tag tag-green" id="vis-sec-badge">Proteção Alta</span>
+            </div>
+            <div id="vis-security-list" class="visual-security-body">
+              <!-- Preenchido via JS -->
+            </div>
           </div>
         </div>
-        <pre class="code-block"><code id="json-payload-code">Carregando especificação...</code></pre>
+      </div>
+
+      <!-- TAB 2: Simulador Prático para o Usuário -->
+      <div id="tab-simulator" class="tab-content">
+        <div class="sim-header-box">
+          <div>
+            <h3 class="visual-spec-title">Veja seu ambiente funcionando na prática</h3>
+            <p class="sim-subtitle">Simule a criação das contas da sua empresa e teste situações reais do dia a dia (bloqueio de golpes, envio de notas e recuperação de e-mails apagados).</p>
+          </div>
+          <button type="button" id="btn-run-simulation" class="btn-primary btn-sim-start" onclick="runVisualSimulation()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Montar Meu Ambiente</span>
+          </button>
+        </div>
+
+        <!-- 4 Passos Simples de Preparação -->
+        <div id="sim-stages-grid" class="sim-stages-grid">
+          <div class="sim-stage-card" data-sim-step="1">
+            <div class="sim-stage-top">
+              <span class="sim-stage-num">PASSO 1</span>
+              <span class="sim-stage-status" id="sim-status-1">Pronto</span>
+            </div>
+            <div class="sim-stage-name">Endereço Profissional Verificado</div>
+            <div class="sim-stage-meta" id="sim-meta-1">Garante que seus e-mails não caiam no spam</div>
+            <div class="sim-progress-bar"><div class="sim-progress-fill" id="sim-prog-1"></div></div>
+          </div>
+
+          <div class="sim-stage-card" data-sim-step="2">
+            <div class="sim-stage-top">
+              <span class="sim-stage-num">PASSO 2</span>
+              <span class="sim-stage-status" id="sim-status-2">Pronto</span>
+            </div>
+            <div class="sim-stage-name">Criação das Caixas da Equipe</div>
+            <div class="sim-stage-meta" id="sim-meta-2">Diretoria, Financeiro, Comercial e Atendimento</div>
+            <div class="sim-progress-bar"><div class="sim-progress-fill" id="sim-prog-2"></div></div>
+          </div>
+
+          <div class="sim-stage-card" data-sim-step="3">
+            <div class="sim-stage-top">
+              <span class="sim-stage-num">PASSO 3</span>
+              <span class="sim-stage-status" id="sim-status-3">Pronto</span>
+            </div>
+            <div class="sim-stage-name">Escudo contra Golpes e Vírus</div>
+            <div class="sim-stage-meta" id="sim-meta-3">Filtra boletos falsos e mensagens perigosas</div>
+            <div class="sim-progress-bar"><div class="sim-progress-fill" id="sim-prog-3"></div></div>
+          </div>
+
+          <div class="sim-stage-card" data-sim-step="4">
+            <div class="sim-stage-top">
+              <span class="sim-stage-num">PASSO 4</span>
+              <span class="sim-stage-status" id="sim-status-4">Pronto</span>
+            </div>
+            <div class="sim-stage-name">Cofre de Cópia Automática</div>
+            <div class="sim-stage-meta" id="sim-meta-4">Guarda histórico para recuperar e-mails apagados</div>
+            <div class="sim-progress-bar"><div class="sim-progress-fill" id="sim-prog-4"></div></div>
+          </div>
+        </div>
+
+        <!-- Painel Visual Interativo da Empresa (Sem Terminal Técnico) -->
+        <div id="sim-success-preview" class="sim-success-preview">
+          <!-- Preenchido dinamicamente pelo JS -->
+        </div>
+      </div>
+
+      <!-- TAB 3: Arquivo Técnico para TI (Opcional) -->
+      <div id="tab-json" class="tab-content">
+        <div class="visual-spec-header" style="margin-bottom: 0.875rem;">
+          <div>
+            <h3 class="visual-spec-title">Especificação pronta para a equipe técnica</h3>
+            <p class="sim-subtitle">Você não precisa entender este código: basta baixar ou copiar se quiser enviá-lo para o seu técnico de TI.</p>
+          </div>
+        </div>
+        <div class="code-viewer-wrapper">
+          <div class="code-viewer-header">
+            <span class="code-badge">configuracao-email.json</span>
+            <div class="code-actions">
+              <button type="button" class="btn-code-action" onclick="copyJsonPayload()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copiar Código</span>
+              </button>
+              <button type="button" class="btn-code-action" onclick="downloadJsonPayload()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Baixar Arquivo</span>
+              </button>
+            </div>
+          </div>
+          <pre class="code-block"><code id="json-payload-code">Carregando especificação...</code></pre>
+        </div>
       </div>
     </div>
 
