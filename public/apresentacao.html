@@ -166,23 +166,27 @@
   <!-- Fullscreen Deck Stage (NO NAVBAR) -->
   <main class="deck-container" id="deck">
     <div class="slide active" data-slide="1">
-      <img src="assets/slides/slide-1.png" alt="Slide 1 - Capa" />
+      <img src="assets/slides/slide-1.png?v=final3" alt="Slide 1 - Capa • Apresentação Final" />
     </div>
 
     <div class="slide" data-slide="2">
-      <img src="assets/slides/slide-2.png" alt="Slide 2 - O Problema" />
+      <img src="assets/slides/slide-2.png?v=final3" alt="Slide 2 - O Problema" />
     </div>
 
     <div class="slide" data-slide="3">
-      <img src="assets/slides/slide-3.png" alt="Slide 3 - O Funil de Diagnóstico" />
+      <img src="assets/slides/slide-3.png?v=final3" alt="Slide 3 - O Funil de Diagnóstico" />
     </div>
 
     <div class="slide" data-slide="4">
-      <img src="assets/slides/slide-4.png" alt="Slide 4 - Modelos de Arquitetura" />
+      <img src="assets/slides/slide-4.png?v=final3" alt="Slide 4 - Resumo Visual & Arquiteturas" />
     </div>
 
     <div class="slide" data-slide="5">
-      <img src="assets/slides/slide-5.png" alt="Slide 5 - Regras de Cálculo & Automação" />
+      <img src="assets/slides/slide-5.png?v=final3" alt="Slide 5 - Simulador Prático" />
+    </div>
+
+    <div class="slide" data-slide="6">
+      <img src="assets/slides/slide-6.png?v=final3" alt="Slide 6 - Resultados & Live Demo" />
     </div>
   </main>
 
@@ -192,7 +196,7 @@
   <!-- Speaker Notes Drawer (Press N) -->
   <aside class="speaker-drawer" id="drawer">
     <div class="speaker-header">
-      <span class="speaker-title">Roteiro de Fala • Slide <span id="drawerNum">1</span> / 5</span>
+      <span class="speaker-title">Roteiro de Fala • Slide <span id="drawerNum">1</span> / 6</span>
       <button class="speaker-close" id="drawerClose">&times;</button>
     </div>
     <p class="speaker-text" id="drawerText"></p>
@@ -200,15 +204,16 @@
 
   <script>
     const notes = {
-      1: "Wizard Pattern: desenvolvido por Victor Hugo, Pedro Lucas, Enzo Katsumoto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio, Bruno Viera e Gabriel Dias para qualificar e dimensionar automaticamente a infraestrutura de e-mail corporativo.",
-      2: "O Problema: cotar e-mail corporativo tradicionalmente consome até 3 semanas de reuniões, gera superdimensionamento em dólar e propostas sem cálculo técnico real de segurança.",
-      3: "O Funil de Diagnóstico: curadoria simplificada em 8 passos diretos e interativos. O cliente responde volume, hospedagem e segurança em menos de 2 minutos, sem jargões complexos de Linux.",
-      4: "Modelos de Arquitetura: o motor classifica e gera automaticamente 5 arquiteturas padronizadas: da Nuvem Híbrida à Cloud Privada soberana com backup imutável WORM de até 5 anos contra ransomware.",
-      5: "Regras de Cálculo & Automação: motor determinístico que calcula Security Score (0 a 100), storage total com margem de segurança de 20% e exporta o payload JSON pronto para provisionamento via Ansible e Terraform. Ao avançar, vamos direto para a demonstração prática no protótipo ao vivo!"
+      1: "Wizard Pattern — Apresentação Final: desenvolvido por Victor Hugo, Pedro Lucas, Enzo Katsumoto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio, Bruno Viera e Gabriel Dias para a disciplina de Fábrica de Projetos Ágeis II em parceria com a Combr Soluções em Nuvem.",
+      2: "O Problema: cotar e dimensionar e-mail corporativo tradicionalmente consome até 3 semanas de reuniões, gera faturas excessivas em dólar para 100% dos usuários e expõe a empresa a ataques diários de força bruta e spoofing sem proteção WAF ou SPF/DKIM/DMARC.",
+      3: "O Funil de Diagnóstico: curadoria simplificada com padrão Zero-Friction em 8 passos interativos. O decisor responde apenas perguntas estratégicas de negócio em menos de 2 minutos, eliminando jargões complexos de Linux e atritos comerciais.",
+      4: "Resumo Visual & Arquiteturas: nova feature que traduz a topologia corporativa sem jargões técnicos. Destacamos o modelo de Nuvem Híbrida Inteligente (combinando M365 para diretoria com AlmaLinux corporativo para operação, gerando 70% de economia), além de borda Cloudflare, escudo anti-fraudes e cofre SaveMail WORM.",
+      5: "Simulador Prático: segunda nova feature que permite ao decisor testar o ambiente em tempo real antes de qualquer provisionamento. Simulações em 1 clique: bloqueio preventivo de boleto falso/phishing na borda, restauração de e-mail apagado da lixeira via cofre e envio de nota fiscal sem cair no spam.",
+      6: "Resultados Alcançados & Live Demo: reduzimos o ciclo de dimensionamento em 95% (de 3 semanas para 2 minutos) e geramos até 70% de economia com o modelo Híbrido, garantindo Security Score de 95+ e retenção WORM de até 5 anos. Ao avançar, entramos diretamente na demonstração prática no protótipo ao vivo em produção!"
     };
 
     let cur = 1;
-    const total = 5;
+    const total = 6;
 
     // Define correct prototype target URL
     const PROTOTYPE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
