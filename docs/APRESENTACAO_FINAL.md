@@ -1,106 +1,116 @@
-# 📊 Apresentação Final &bull; Wizard Pattern
-**Gerador Inteligente de Configuração & Diagnóstico de Infraestrutura em Nuvem**
+# 📊 Apresentação Final (P2) &bull; Wizard Pattern
+**Entrega do Projeto em Produção & Automação de Nuvem**
 
 > **Disciplina de Fábrica de Projetos Ágeis II &bull; Turma B &bull; 2026**  
 > **Empresa Parceira:** Combr Soluções em Nuvem  
 > **Integrantes da Equipe:** Victor Hugo, Pedro Lucas, Enzo Katsumoto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio (Líder), Bruno Viera, Gabriel Dias  
-> **Status:** Apresentação Final | Solução em Produção no GitHub Pages
+> **Status:** Apresentação Final | Aplicação em Produção no GitHub Pages  
+> **URL da Aplicação:** [viniciusulpicio.github.io/wizard-pattern](https://viniciusulpicio.github.io/wizard-pattern/)
 
 ---
 
-## 📑 Índice dos Slides (Estética Original • 6 Slides Executivos)
+## 📑 Índice dos Slides
 
-1. [Slide 1: Capa &bull; Apresentação Final](#slide-1-capa--apresentação-final)
-2. [Slide 2: O Problema &bull; Gargalos no Dimensionamento](#slide-2-o-problema--gargalos-no-dimensionamento)
-3. [Slide 3: O Funil de Diagnóstico &bull; Curadoria em 2 Minutos](#slide-3-o-funil-de-diagnóstico--curadoria-em-2-minutos)
+1. [Slide 1: Capa &bull; Apresentação Final (P2)](#slide-1-capa--apresentação-final-p2)
+2. [Slide 2: Evolução do Projeto &bull; P1 vs Entrega Final](#slide-2-evolução-do-projeto--p1-vs-entrega-final)
+3. [Slide 3: O Funil de Qualificação &bull; Zero-Friction em 8 Passos](#slide-3-o-funil-de-qualificação--zero-friction-em-8-passos)
 4. [Slide 4: Resumo Visual & 5 Modelos de Arquitetura](#slide-4-resumo-visual--5-modelos-de-arquitetura)
-5. [Slide 5: Simulador Prático &bull; Cenários Reais em 1 Clique](#slide-5-simulador-prático--cenários-reais-em-1-clique)
-6. [Slide 6: Regras de Cálculo & Automação DevOps](#slide-6-regras-de-cálculo--automação-devops)
+5. [Slide 5: Simulador do Dia a Dia &bull; Validação Prática em 1 Clique](#slide-5-simulador-do-dia-a-dia--validação-prática-em-1-clique)
+6. [Slide 6: Engenharia, Resultados & Live Demo](#slide-6-engenharia-resultados--live-demo)
 
 ---
 
-## Slide 1: Capa &bull; Apresentação Final
+## Slide 1: Capa &bull; Apresentação Final (P2)
 
 ### 🎯 Elementos Visuais do Slide
 - Logo oficial do Wizard Pattern centralizada em alta definição.
-- Subtítulo técnico e contexto acadêmico.
+- Badge: `APRESENTAÇÃO FINAL (P2) • ENTREGA DO PROJETO`.
+- Subtítulo: *Diagnóstico e Dimensionamento de Infraestrutura Corporativa*.
 - Lista completa dos 8 integrantes da equipe.
 
 ### 🎙️ Roteiro de Fala (Speaker Notes)
-> *"Olá a todos! Hoje apresentamos a **Apresentação Final do Wizard Pattern**, o gerador interativo de configuração e diagnóstico de infraestrutura de e-mail corporativo em nuvem, desenvolvido para a disciplina de Fábrica de Projetos Ágeis II em parceria com a Combr Soluções em Nuvem. O projeto entrega curadoria simplificada em menos de 2 minutos e automação real para provisionamento de servidores AlmaLinux na AWS e Oracle Cloud."*
+> *"Olá a todos! Hoje apresentamos a **Apresentação Final (P2) do Wizard Pattern**, projeto desenvolvido em parceria com a Combr Soluções em Nuvem para a disciplina de Fábrica de Projetos Ágeis II. Nossa equipe é formada por Victor Hugo, Pedro Lucas, Enzo Katsumoto, Luiz Seisdedo, Danilo Dezani, Vinicius Sulpicio, Bruno Viera e Gabriel Dias. Na etapa inicial mostramos o conceito; hoje trazemos a solução completa em produção, as novas features e a demonstração prática ao vivo."*
 
 ---
 
-## Slide 2: O Problema &bull; Gargalos no Dimensionamento
+## Slide 2: Evolução do Projeto &bull; P1 vs Entrega Final
 
 ### 🎯 Elementos Visuais do Slide
-- Faixa superior curva em azul marinho com o título `O PROBLEMA`.
-- 5 colunas verticais com ícones circulares da identidade visual original:
-  - `COTAÇÃO LENTA:` Ciclos de 2 a 3 semanas.
-  - `CUSTO EM DÓLAR:` Faturas 100% em moeda forte.
-  - `ATAQUES BRUTOS:` Vulnerabilidade sem WAF.
-  - `FALHA SPF/DMARC:` Bloqueios e baixa entrega.
-  - `RETRABALHO DEVOPS:` Provisionamento manual.
+- Faixa superior curva em azul marinho com o título `EVOLUÇÃO DO PROJETO`.
+- Subtítulo: *Do Protótipo Inicial (P1) à Entrega em Produção com Novas Features*.
+- 5 colunas comparativas com ícones vetoriais:
+  1. `EM PRODUÇÃO:` Aplicação 100% online no GitHub Pages com pipeline de deploy contínuo.
+  2. `SIMULADOR:` Nova feature: 3 simulações práticas do cotidiano de TI em 1 clique.
+  3. `RESUMO VISUAL:` Topologia descomplicada sem jargões para tomadores de decisão.
+  4. `MOTOR REAL:` Cálculo dinâmico de storage GB/TB e Security Score 95+ validado.
+  5. `AUTOMAÇÃO IaC:` Contrato JSON v2.0 para automação direta via Ansible e Terraform.
 
 ### 🎙️ Roteiro de Fala (Speaker Notes)
-> *"Dimensionar e-mails corporativos hoje é um processo cheio de atritos: cotações que levam semanas em reuniões burocráticas, empresas pagando faturas caras em dólar para contas de funcionários que só precisam de e-mail básico, servidores expostos a ataques diários de força bruta, e falhas de SPF e DMARC que jogam mensagens legítimas no spam. Além disso, a proposta comercial não se comunicava com a engenharia de DevOps."*
+> *"Na P1, apresentamos o mapeamento do problema e o protótipo de telas. Para a entrega final, o projeto evoluiu significativamente: primeiro, está 100% no ar em produção via GitHub Pages; segundo, implementamos o **Simulador do Dia a Dia**, permitindo testar cenários reais em 1 clique; terceiro, criamos o **Resumo Visual do Plano** para diretores e decisores não técnicos; quarto, calibramos o **Motor Matemático** em PHP com conversão reativa de GB para TB; e quinto, padronizamos o contrato JSON v2.0 pronto para automação em Ansible e Terraform."*
 
 ---
 
-## Slide 3: O Funil de Diagnóstico &bull; Curadoria em 2 Minutos
+## Slide 3: O Funil de Qualificação &bull; Zero-Friction em 8 Passos
 
 ### 🎯 Elementos Visuais do Slide
-- Faixa decorativa orgânica na lateral esquerda.
-- 2 blocos principais com ícones circulares:
-  - `Volume & Hospedagem (Steps 1 e 2):` Mapeamento de contas, quotas e servidores.
-  - `Segurança, Backup & Entrega (Steps 3 a 8):` Cloudflare WAF, conformidade de domínio, SaveMail WORM e exportação do JSON.
+- Faixa decorativa orgânica na lateral esquerda com o título `O FUNIL DE QUALIFICAÇÃO`.
+- Subtítulo: *Curadoria Simplificada: 8 Passos Guiados em Menos de 2 Minutos*.
+- 2 blocos conceituais detalhados:
+  - `Entrada Guiada (Steps 1 e 2):`
+    - Mapeamento de volume de contas e caixas postais.
+    - Sliders reativos com conversão instantânea de GB para TB.
+    - Escolha do modelo de nuvem (Híbrido, Privado, SaaS ou VPS).
+  - `Segurança, Backup & Entrega (Steps 3 a 8):`
+    - Proteção de borda Cloudflare WAF e DNS Anycast (SPF/DKIM/DMARC).
+    - Cofre SaveMail Pro com política WORM imune a ransomware.
+    - Geração imediata do contrato JSON v2 e despacho em 1 clique.
 
 ### 🎙️ Roteiro de Fala (Speaker Notes)
-> *"Desenvolvemos um funil de diagnóstico interativo com padrão Zero-Friction. Com apenas 1 pergunta por tela e avanço automático em 220 milissegundos, o cliente qualifica volume, quotas, segurança e cofre em menos de 2 minutos, sem o atrito de jargões técnicos complexos de Linux."*
+> *"Nosso funil foi desenvolvido seguindo o padrão Zero-Friction: uma única decisão por tela, avanço automático em 220 milissegundos e suporte total a teclado (teclas 1 a 9). O cliente não precisa entender parâmetros complexos de Linux: ele apenas informa sua realidade de contas, ajusta cotas em sliders dinâmicos e define requisitos de segurança e retenção de backup. Em menos de 2 minutos, o sistema extrai todos os parâmetros necessários para o dimensionamento exato."*
 
 ---
 
 ## Slide 4: Resumo Visual & 5 Modelos de Arquitetura
 
 ### 🎯 Elementos Visuais do Slide
-- Cabeçalho original: título `RESUMO VISUAL` sobre o vetor azul superior e subtítulo `Topologia Descomplicada & 5 Modelos de Infraestrutura`.
-- 5 linhas horizontais limpas com ícones circulares vetoriais:
-  1. `Nuvem Híbrida Inteligente (Modelo Recomendado):` Microsoft 365/Google na diretoria + AlmaLinux para operação (até 70% de economia).
-  2. `Borda Verificada & Reputação de Domínio:` Cloudflare DNS com SPF, DKIM 2048-bit e DMARC garantindo entrega direta na caixa de entrada.
-  3. `Escudo Proativo contra Fraudes e Golpes:` Filtros anti-phishing, antivírus e quarentena de boletos falsos.
-  4. `Cofre Imutável SaveMail Pro (Até 5 Anos):` Retenção WORM imune a ransomware e recuperação em 1 clique.
-  5. `Soberania em Cloud Dedicada AlmaLinux 9:` Servidores dedicados na AWS/Oracle Cloud com conformidade LGPD.
+- Cabeçalho: título `RESUMO VISUAL` sobre o vetor superior azul e subtítulo `Topologia Descomplicada & Modelo Híbrido Inteligente`.
+- 5 linhas horizontais estruturadas com ícones circulares vetoriais:
+  1. `Nuvem Híbrida Inteligente (Modelo Recomendado):` Contas executivas no Microsoft 365/Google combinadas com operação corporativa em AlmaLinux: redução de até 70% na fatura em dólar.
+  2. `Borda Verificada & Reputação de Domínio:` Cloudflare DNS com SPF, DKIM 2048-bit e DMARC com Security Score de 95+, garantindo entrega direta na caixa de entrada.
+  3. `Escudo Proativo contra Fraudes e Golpes:` Filtros heurísticos anti-phishing, antivírus integrado e quarentena imediata de faturas e boletos falsificados.
+  4. `Cofre Imutável SaveMail Pro (Até 5 Anos):` Armazenamento WORM (Write Once, Read Many) imune a ransomware, auditoria de compliance e restauração de dados em 1 clique.
+  5. `Soberania em Cloud Dedicada AlmaLinux 9:` Instâncias corporativas dedicadas na AWS EC2 ou Oracle Cloud OCI com conformidade integral à LGPD e faturamento em BRL.
 
 ### 🎙️ Roteiro de Fala (Speaker Notes)
-> *"Na nossa tela de resultado, introduzimos o **Resumo Visual do Plano**. O tomador de decisão visualiza a topologia corporativa de forma descomplicada. Destacamos o modelo de Nuvem Híbrida Inteligente, que combina contas executivas no M365 com nuvem AlmaLinux para a equipe operacional, reduzindo a fatura em até 70% em moeda local, protegido por borda Cloudflare e cofre SaveMail WORM."*
+> *"Na tela de diagnósticos, criamos a aba **Resumo Visual do Plano**. O decisor visualiza a topologia corporativa de forma clara e descomplicada. O grande destaque é o modelo de Nuvem Híbrida Inteligente: postos estratégicos permanecem no Microsoft 365 ou Google Workspace, enquanto a grande massa operacional roda em servidores AlmaLinux gerenciados pela Combr. Isso reduz o custo total em até 70% em moeda local, sem perder a proteção de borda Cloudflare nem a conformidade da LGPD."*
 
 ---
 
-## Slide 5: Simulador Prático &bull; Cenários Reais em 1 Clique
+## Slide 5: Simulador do Dia a Dia &bull; Validação Prática em 1 Clique
 
 ### 🎯 Elementos Visuais do Slide
-- Cabeçalho original: título `SIMULADOR PRÁTICO` sobre o vetor azul superior e subtítulo `Validação em Tempo Real de Cenários Reais do Cotidiano`.
-- 5 linhas horizontais limpas com os mesmos ícones circulares vetoriais:
-  1. `Ativação Guiada em 4 Etapas:` Endereço Verificado → Caixas Criadas → Escudo Ativo → Cofre Conectado.
-  2. `Simulação 1: Bloqueio de Boleto Falso e Phishing:` Filtro inteligente barra remetente forjado na borda antes de atingir o colaborador.
-  3. `Simulação 2: Recuperação de E-mail Apagado da Lixeira:` Exclusão acidental restaurada em segundos pelo cofre SaveMail sem chamado para a TI.
-  4. `Simulação 3: Envio de Nota Fiscal (NF-e) sem Spam:` Canal exclusivo com IP aquecido e assinatura digital DKIM.
-  5. `Validação Técnica Antes do Provisionamento:` O decisor e a banca testam a resiliência do sistema antes de assinar a proposta.
+- Cabeçalho: título `SIMULADOR DO DIA A DIA` sobre o vetor superior azul e subtítulo `Nova Feature: Validação Prática de 3 Cenários Reais em 1 Clique`.
+- 5 linhas horizontais estruturadas com ícones circulares vetoriais:
+  1. `Ativação Guiada em 4 Etapas:` Passo a passo da contratação ao go-live: 1. Endereço Verificado → 2. Caixas Criadas → 3. Escudo Borda Ativo → 4. Cofre SaveMail Conectado.
+  2. `Simulação 1: Bloqueio de Boleto Falso e Phishing:` Tentativa de golpe com remetente forjado: o filtro heurístico identifica a fraude e barra o anexo na borda antes de chegar à caixa do usuário.
+  3. `Simulação 2: Recuperação de E-mail Apagado da Lixeira:` Exclusão acidental de contrato ou documento crítico: o cofre SaveMail restaura a mensagem íntegra em segundos sem abrir chamado para a TI.
+  4. `Simulação 3: Envio de Nota Fiscal (NF-e) sem Spam:` Disparo transacional de faturamento pelo ERP: canal exclusivo com IP dedicado aquecido e assinatura DKIM garante entrega na inbox do cliente.
+  5. `Validação Técnica Antes do Provisionamento:` O decisor e a banca experimentam o comportamento prático do ambiente antes de aprovar a contratação ou provisionar máquinas.
 
 ### 🎙️ Roteiro de Fala (Speaker Notes)
-> *"A segunda grande novidade é o **Simulador Prático**. Na própria tela de resultado, o cliente pode clicar em 'Simular na Prática'. Ele vê as 4 etapas de ativação e pode testar três situações cotidianas em tempo real: a tentativa de envio de um boleto falso sendo bloqueada na borda, a restauração imediata de um e-mail excluído da lixeira via cofre, e o envio de uma nota fiscal entregue direto na caixa de entrada do cliente."*
+> *"A principal inovação desenvolvida para esta entrega é o **Simulador do Dia a Dia**. Na própria tela de resultado, o cliente pode clicar em 'Simular na Prática'. Ele visualiza as 4 etapas de onboarding e pode testar interativamente três situações críticas: um boleto falso sendo barrado na borda antes de atingir o financeiro; a recuperação instantânea de um e-mail excluído da lixeira via cofre SaveMail WORM; e o disparo de notas fiscais com IP aquecido entregues direto na caixa de entrada sem cair em spam."*
 
 ---
 
-## Slide 6: Resultados & Demonstração ao Vivo (Live Demo)
+## Slide 6: Engenharia, Resultados & Live Demo
 
 ### 🎯 Elementos Visuais do Slide
-- Título principal: `RESULTADOS & LIVE DEMO`.
-- Grade 2x2 com duas barras verticais azuis e 4 ícones circulares:
+- Título principal: `ENGENHARIA, RESULTADOS & LIVE DEMO`.
+- Grade 2x2 com ícones circulares e métricas consolidadas:
   - `Velocidade: -95% no Ciclo:` Redução do processo de dimensionamento de 3 semanas de reuniões para menos de 2 minutos com qualificação padronizada.
-  - `Economia Real de até 70%:` Nuvem Híbrida Inteligente: contas executivas no M365 e operação em AlmaLinux, com faturamento em BRL e blindagem cambial.
-  - `Resiliência: Score 95+ e WORM:` Proteção de borda Cloudflare WAF, autenticação SPF/DKIM/DMARC e cofre diário SaveMail Pro de até 5 anos imune a ransomware.
-  - `Protótipo em Produção (Live Demo):` Aplicação 100% funcional no GitHub Pages com exportação IaC (Ansible/Terraform). Ao avançar este slide, iniciamos a demonstração prática ao vivo.
+  - `Economia Real de até 70%:` Nuvem Híbrida: contas executivas no M365 e operação em AlmaLinux, com blindagem cambial e faturamento 100% em BRL.
+  - `Engenharia & Automação IaC:` Pipeline CI/CD no GitHub Actions, testes PHPUnit e exportação de JSON v2.0 compatível com Ansible Playbooks e Terraform.
+  - `Demonstração ao Vivo (Live Demo):` Aplicação 100% funcional no GitHub Pages (`viniciusulpicio.github.io/wizard-pattern`). Ao avançar este slide, iniciamos a demonstração prática!
 
 ### 🎙️ Roteiro de Fala (Speaker Notes)
-> *"Para concluir, o Wizard Pattern comprova na prática seus resultados: reduzimos o ciclo de dimensionamento em 95% — de 3 semanas para menos de 2 minutos —, geramos até 70% de economia corporativa em moeda local e elevamos o Security Score para 95+ pontos com proteção WAF e cofre WORM de até 5 anos. O sistema está 100% online no GitHub Pages e agora abrimos para a demonstração prática ao vivo e perguntas da banca. Muito obrigado!"*
+> *"Em resumo, o Wizard Pattern entrega valor comprovado em três pilares: velocidade — reduzindo em 95% o tempo de cotação —, economia — gerando até 70% de redução de custos com proteção cambial —, e segurança técnica — com Security Score 95+ e retenção WORM de até 5 anos. O projeto conta com testes unitários PHPUnit, pipeline de deploy contínuo no GitHub Actions e geração de IaC. Convido a banca a acompanhar agora a demonstração prática diretamente no sistema em produção!"*
